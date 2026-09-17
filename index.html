@@ -206,13 +206,10 @@
       if there’s anything you would like to say.
     </p>
 
-    <form
-      action="https://formspree.io/f/mdekoeyv"
-      method="POST"
-      target="_blank"
-    >
+    <form id="replyForm">
 
       <textarea
+        id="message"
         name="Message"
         placeholder="Type whatever you would like to say..."
         required
@@ -229,6 +226,31 @@
     </div>
 
   </main>
+
+  <script>
+    document.getElementById("replyForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const message = document.getElementById("message").value;
+
+      try {
+        await fetch("https://formspree.io/f/mdekoeyv", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            Message: message
+          })
+        });
+
+        document.getElementById("message").value = "";
+      } catch (error) {
+        console.error("Message could not be sent.", error);
+      }
+    });
+  </script>
 
 </body>
 </html>
