@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Finally 👀</title>
+  <title>I Mean It 👀</title>
 
   <style>
     :root {
@@ -89,22 +89,10 @@
       letter-spacing: -0.04em;
     }
 
-    .intro {
-      max-width: 390px;
-
-      margin: 0 auto;
-
-      color: var(--muted);
-
-      font-size: 17px;
-
-      line-height: 1.65;
-    }
-
     .message {
-      margin: 30px auto;
+      margin: 30px auto 0;
 
-      padding: 22px;
+      padding: 24px;
 
       background: var(--card-2);
 
@@ -114,31 +102,16 @@
 
       font-size: 17px;
 
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .message strong {
       color: var(--text);
     }
 
-    .question {
-      margin-top: 26px;
-
-      padding-top: 22px;
-
-      border-top: 1px solid var(--border);
-
-      color: var(--text);
-
-      font-size: 18px;
-
-      line-height: 1.55;
-
-      font-weight: 600;
-    }
-
-    .question span {
+    .accent {
       color: var(--accent);
+      font-weight: 600;
     }
 
     .signature {
@@ -165,12 +138,6 @@
       font-weight: normal;
     }
 
-    .heart {
-      display: inline-block;
-
-      animation: heartbeat 1.5s infinite;
-    }
-
     @keyframes appear {
       from {
         opacity: 0;
@@ -183,31 +150,10 @@
       }
     }
 
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      15% {
-        transform: scale(1.15);
-      }
-
-      30% {
-        transform: scale(1);
-      }
-    }
-
     @media (max-width: 420px) {
       .card {
         padding: 36px 22px;
         border-radius: 24px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before {
-        animation: none !important;
       }
     }
   </style>
@@ -218,87 +164,58 @@
   <main class="card">
 
     <div class="eyebrow">
-      Finally 👀
+      Since you asked 👀
     </div>
 
     <h1>
-      So you opened it. 😂
+      I’m actually serious.
     </h1>
-
-    <p class="intro">
-      After all that hesitation...
-    </p>
 
     <div class="message">
 
       <strong>
-        You were scared of my little link? 😭
+        I wasn’t testing you Mr V.
       </strong>
 
       <br><br>
 
-      I really watched you take your sweet time
-      before opening it. 😂
+      I genuinely meant what I said.
+
+      <br><br>
+
+      I’ve decided I want to come out of my shell a little
+      and enjoy life here and there instead of always
+      overthinking things.
+
+      <br><br>
+
+      I want to allow myself to do things sometimes
+      and just enjoy the moment.
+
+      <br><br>
+
+      So yes
+      <span class="accent">I was being serious about it.</span>
+
+      <br><br>
+
+      There was no test behind it and I wasn’t trying
+      to catch you out.
 
       <br><br>
 
       <strong>
-        Next time, just open the damn thing. 😌
+        I meant what I said❤️
       </strong>
-
-      <div class="question">
-
-        But wait... 🫩
-
-        <br><br>
-
-        Why aren't you asking about
-        <span>Request 03</span>? 👀
-
-        <br><br>
-
-        You mentioned the first two...
-        but somehow skipped that one. 😂
-
-        <br><br>
-
-        Are you scared of Request 03 as well? 👀😭
-
-      </div>
 
     </div>
 
-    <p class="intro">
-      Anyway... I'm glad you finally did.
-      <span class="heart">❤️</span>
-    </p>
-
     <div class="signature">
-      MM
+      You might just have to get used to this side of me.
+      <strong>MM</strong>
     </div>
 
   </main>
-
-  <script>
-    // Silently notify Formspree when the page is opened.
-    // Nothing is displayed to the person viewing the page.
-
-    window.addEventListener("load", function () {
-      fetch("https://formspree.io/f/mdekoeyv", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          "Page": "Finally 👀",
-          "Event": "Page opened"
-        })
-      }).catch(() => {
-        // Keep the page completely unaffected if the notification fails.
-      });
-    });
-  </script>
 
 </body>
 </html>
