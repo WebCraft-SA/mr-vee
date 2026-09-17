@@ -156,8 +156,9 @@
       cursor: pointer;
     }
 
-    button:active {
-      transform: scale(0.98);
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
     }
 
     .note {
@@ -166,6 +167,16 @@
       color: var(--muted);
 
       font-size: 13px;
+    }
+
+    #status {
+      margin-top: 14px;
+
+      font-size: 14px;
+
+      color: var(--accent);
+
+      display: none;
     }
 
     @keyframes appear {
@@ -206,20 +217,20 @@
       if there’s anything you would like to say.
     </p>
 
-    <form id="replyForm">
+    <textarea
+      id="message"
+      placeholder="Type whatever you would like to say..."
+    ></textarea>
 
-      <textarea
-        id="message"
-        name="Message"
-        placeholder="Type whatever you would like to say..."
-        required
-      ></textarea>
+    <button
+      id="sendButton"
+      type="button"
+      onclick="sendMessage()"
+    >
+      Send
+    </button>
 
-      <button type="submit">
-        Send
-      </button>
-
-    </form>
+    <div id="status"></div>
 
     <div class="note">
       I’m listening.
@@ -228,28 +239,50 @@
   </main>
 
   <script>
-    document.getElementById("replyForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
+    async function sendMessage() {
+      const messageBox = document.getElementById("message");
+      const button = document.getElementById("sendButton");
+      const status = document.getElementById("status");
 
-      const message = document.getElementById("message").value;
+      const message = messageBox.value.trim();
+
+      if (!message) {
+        return;
+      }
+
+      button.disabled = true;
 
       try {
-        await fetch("https://formspree.io/f/mdekoeyv", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            Message: message
-          })
-        });
+        const response = await fetch(
+          "https://formspree.io/f/mdekoeyv",
+          {
+            method: "POST",
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              Message: message
+            })
+          }
+        );
 
-        document.getElementById("message").value = "";
+        if (!response.ok) {
+          throw new Error("Message was not sent");
+        }
+
+        messageBox.value = "";
+
+        status.textContent = "Sent.";
+        status.style.display = "block";
+
       } catch (error) {
-        console.error("Message could not be sent.", error);
+        status.textContent = "Something went wrong. Please try again.";
+        status.style.display = "block";
       }
-    });
+
+      button.disabled = false;
+    }
   </script>
 
 </body>
