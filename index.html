@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>You Hit It All Wrong</title>
+  <title>No More Tests</title>
 
   <style>
     :root {
@@ -13,7 +13,6 @@
       --card: #15151c;
       --card-2: #1c1c25;
       --text: #f5f5f7;
-      --muted: #9898a5;
       --accent: #d8a7b1;
       --border: rgba(255,255,255,0.09);
     }
@@ -103,149 +102,9 @@
 
       color: var(--text);
 
-      font-size: 16px;
+      font-size: 17px;
 
       line-height: 1.7;
-    }
-
-    .request-section {
-      margin-top: 28px;
-
-      padding: 24px;
-
-      background: var(--card-2);
-
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-
-      text-align: center;
-    }
-
-    .request-title {
-      color: var(--accent);
-
-      font-size: 18px;
-
-      font-weight: 600;
-
-      margin-bottom: 18px;
-    }
-
-    .reveal-button,
-    .send-button {
-      border: none;
-
-      border-radius: 12px;
-
-      padding: 13px 20px;
-
-      background: var(--accent);
-
-      color: #15151c;
-
-      font-size: 14px;
-
-      font-weight: 650;
-
-      cursor: pointer;
-
-      transition: opacity 0.2s ease;
-    }
-
-    .reveal-button:hover,
-    .send-button:hover {
-      opacity: 0.88;
-    }
-
-    .request-content {
-      display: none;
-
-      margin-top: 20px;
-
-      padding: 18px;
-
-      background: rgba(0,0,0,0.18);
-
-      border-radius: 14px;
-
-      line-height: 1.6;
-
-      font-size: 16px;
-    }
-
-    .reply-box {
-      margin-top: 28px;
-
-      padding: 24px;
-
-      background: var(--card-2);
-
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-    }
-
-    .reply-title {
-      color: var(--accent);
-
-      font-size: 14px;
-
-      font-weight: 600;
-
-      margin-bottom: 14px;
-    }
-
-    textarea {
-      width: 100%;
-
-      min-height: 120px;
-
-      resize: vertical;
-
-      padding: 15px;
-
-      border-radius: 12px;
-
-      border: 1px solid var(--border);
-
-      background: #101017;
-
-      color: var(--text);
-
-      font-family: inherit;
-
-      font-size: 15px;
-
-      line-height: 1.5;
-
-      outline: none;
-    }
-
-    textarea:focus {
-      border-color: var(--accent);
-    }
-
-    textarea::placeholder {
-      color: var(--muted);
-    }
-
-    .send-button {
-      margin-top: 14px;
-
-      width: 100%;
-    }
-
-    #status {
-      display: none;
-
-      margin-top: 12px;
-
-      text-align: center;
-
-      color: var(--muted);
-
-      font-size: 13px;
     }
 
     .closing {
@@ -288,159 +147,34 @@
 
 ```
 <div class="eyebrow">
-  Let me clarify
+  Okay Mr V
 </div>
 
 <h1>
-  You misunderstood this one.
+  No More Tests
 </h1>
 
 <div class="message">
 
-  It’s actually not about money at all and I think you
-  misunderstood the whole point.
+  😂😂 Okay Mr V I hear you... No more tests.
 
   <br><br>
 
-  I might not be earning much but what I earn covers me
-  in almost everything. Me telling you about my financial
-  challenges doesn’t mean I go around asking people for
-  money or that I was looking at you as someone to
-  financially assist me.
+  But in my defence you completely misunderstood
+  Request 3 😭
 
   <br><br>
 
-  You said I was testing you so I thought let me play
-  along and say I wanted money..I mean I just got paid bathong.
-
-  <br><br>
-
-  So your response about giving money to random people
-  and suggesting I take a bank loan was unnecessary
-  because that was never what this was about.
-
-</div>
-
-<div class="request-section">
-
-  <div class="request-title">
-    Request 3
-  </div>
-
-  <button
-    class="reveal-button"
-    id="revealButton"
-    type="button"
-  >
-    Click to reveal
-  </button>
-
-  <div
-    class="request-content"
-    id="requestContent"
-  >
-    My actual Request 3 was about us taking the chance
-    and seeing where it goes.
-  </div>
-
-</div>
-
-<div class="reply-box">
-
-  <div class="reply-title">
-    Your response
-  </div>
-
-  <textarea
-    id="reply"
-    placeholder="Type your response here..."
-  ></textarea>
-
-  <button
-    class="send-button"
-    id="sendButton"
-    type="button"
-  >
-    Send
-  </button>
-
-  <div id="status"></div>
+  I’m sorry once again.
 
 </div>
 
 <div class="closing">
-  You got it all wrong Mr V🤣🤣🤚
+  Respect for the bagolo has been noted 😂
 </div>
 ```
 
   </main>
-
-  <script>
-    const revealButton = document.getElementById("revealButton");
-    const requestContent = document.getElementById("requestContent");
-
-    revealButton.addEventListener("click", function () {
-      requestContent.style.display = "block";
-      revealButton.style.display = "none";
-    });
-
-    const sendButton = document.getElementById("sendButton");
-    const reply = document.getElementById("reply");
-    const status = document.getElementById("status");
-
-    sendButton.addEventListener("click", async function () {
-
-      const message = reply.value.trim();
-
-      if (!message) {
-        status.textContent = "Please type a response first.";
-        status.style.display = "block";
-        return;
-      }
-
-      sendButton.disabled = true;
-
-      status.textContent = "Sending...";
-      status.style.display = "block";
-
-      try {
-
-        const response = await fetch(
-          "https://formspree.io/f/mdekoeyv",
-          {
-            method: "POST",
-
-            headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-              "Reply": message
-            })
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Message was not sent");
-        }
-
-        reply.value = "";
-
-        status.textContent = "Sent.";
-
-      } catch (error) {
-
-        status.textContent =
-          "Something went wrong. Please try again.";
-
-      } finally {
-
-        sendButton.disabled = false;
-
-      }
-    });
-  </script>
 
 </body>
 </html>
