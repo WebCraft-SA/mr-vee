@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>I Mean It 👀</title>
+  <title>One More Thing</title>
 
   <style>
     :root {
@@ -57,7 +57,7 @@
       border: 1px solid var(--border);
       border-radius: 28px;
 
-      padding: 44px 30px;
+      padding: 38px 28px;
 
       text-align: center;
 
@@ -78,64 +78,94 @@
     }
 
     h1 {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
 
-      font-size: clamp(32px, 8vw, 46px);
+      font-size: clamp(28px, 7vw, 40px);
 
-      line-height: 1.05;
+      line-height: 1.1;
 
       font-weight: 650;
 
-      letter-spacing: -0.04em;
+      letter-spacing: -0.03em;
     }
 
-    .message {
-      margin: 30px auto 0;
+    .intro {
+      margin: 0 auto 24px;
 
-      padding: 24px;
+      max-width: 410px;
 
-      background: var(--card-2);
+      color: var(--muted);
 
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-
-      font-size: 17px;
+      font-size: 16px;
 
       line-height: 1.65;
     }
 
-    .message strong {
+    textarea {
+      width: 100%;
+      min-height: 150px;
+
+      padding: 16px;
+
+      resize: vertical;
+
+      background: var(--card-2);
+
       color: var(--text);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      outline: none;
+
+      font-family: inherit;
+
+      font-size: 16px;
+
+      line-height: 1.5;
     }
 
-    .accent {
-      color: var(--accent);
-      font-weight: 600;
+    textarea::placeholder {
+      color: #777784;
     }
 
-    .signature {
-      margin-top: 32px;
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    button {
+      width: 100%;
+
+      margin-top: 16px;
+
+      padding: 14px 20px;
+
+      border: none;
+
+      border-radius: 14px;
+
+      background: var(--accent);
+
+      color: #171218;
+
+      font-size: 16px;
+
+      font-weight: 650;
+
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .note {
+      margin-top: 14px;
 
       color: var(--muted);
 
-      font-size: 14px;
-
-      font-style: italic;
-    }
-
-    .signature strong {
-      display: block;
-
-      margin-top: 8px;
-
-      color: var(--text);
-
-      font-size: 22px;
-
-      font-family: Georgia, serif;
-
-      font-weight: normal;
+      font-size: 13px;
     }
 
     @keyframes appear {
@@ -152,7 +182,7 @@
 
     @media (max-width: 420px) {
       .card {
-        padding: 36px 22px;
+        padding: 32px 20px;
         border-radius: 24px;
       }
     }
@@ -164,55 +194,38 @@
   <main class="card">
 
     <div class="eyebrow">
-      Since you asked 👀
+      One more thing
     </div>
 
     <h1>
-      I’m actually serious.
+      Before you go back to normal typing...
     </h1>
 
-    <div class="message">
+    <p class="intro">
+      Lemme give you a little show of allowing you to type something
+      if there’s anything you would like to say.
+    </p>
 
-      <strong>
-        I wasn’t testing you Mr V.
-      </strong>
+    <form
+      action="https://formspree.io/f/mdekoeyv"
+      method="POST"
+      target="_blank"
+    >
 
-      <br><br>
+      <textarea
+        name="Message"
+        placeholder="Type whatever you would like to say..."
+        required
+      ></textarea>
 
-      I genuinely meant what I said.
+      <button type="submit">
+        Send
+      </button>
 
-      <br><br>
+    </form>
 
-      I’ve decided I want to come out of my shell a little
-      and enjoy life here and there instead of always
-      overthinking things.
-
-      <br><br>
-
-      I want to allow myself to do things sometimes
-      and just enjoy the moment.
-
-      <br><br>
-
-      So yes
-      <span class="accent">I was being serious about it.</span>
-
-      <br><br>
-
-      There was no test behind it and I wasn’t trying
-      to catch you out.
-
-      <br><br>
-
-      <strong>
-        I meant what I said❤️
-      </strong>
-
-    </div>
-
-    <div class="signature">
-      You might just have to get used to this side of me.
-      <strong>MM</strong>
+    <div class="note">
+      I’m listening.
     </div>
 
   </main>
