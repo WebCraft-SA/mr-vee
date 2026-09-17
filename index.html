@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Request 3</title>
+  <title>You Hit It All Wrong</title>
 
   <style>
     :root {
@@ -50,7 +51,7 @@
 
     .card {
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
 
       background: rgba(21, 21, 28, 0.96);
 
@@ -58,8 +59,6 @@
       border-radius: 28px;
 
       padding: 40px 28px;
-
-      text-align: center;
 
       box-shadow:
         0 25px 80px rgba(0,0,0,0.45);
@@ -75,10 +74,12 @@
       text-transform: uppercase;
 
       margin-bottom: 18px;
+
+      text-align: center;
     }
 
     h1 {
-      margin: 0 0 24px;
+      margin: 0 0 28px;
 
       font-size: clamp(30px, 8vw, 44px);
 
@@ -87,6 +88,8 @@
       font-weight: 650;
 
       letter-spacing: -0.04em;
+
+      text-align: center;
     }
 
     .message {
@@ -103,42 +106,11 @@
       font-size: 16px;
 
       line-height: 1.7;
-
-      text-align: left;
     }
 
-    .open-button,
-    .send-button {
-      width: 100%;
+    .request-section {
+      margin-top: 28px;
 
-      margin-top: 24px;
-
-      padding: 15px 20px;
-
-      border: none;
-
-      border-radius: 14px;
-
-      background: var(--accent);
-
-      color: #171218;
-
-      font-size: 16px;
-
-      font-weight: 650;
-
-      cursor: pointer;
-    }
-
-    .answer-section {
-      display: none;
-
-      margin-top: 24px;
-
-      animation: reveal 0.5s ease;
-    }
-
-    .answer {
       padding: 24px;
 
       background: var(--card-2);
@@ -147,76 +119,107 @@
 
       border-radius: 18px;
 
-      font-size: 18px;
-
-      line-height: 1.6;
+      text-align: center;
     }
 
-    .question {
-      margin: 26px 0 14px;
+    .request-title {
+      color: var(--accent);
 
-      color: var(--text);
-
-      font-size: 16px;
+      font-size: 18px;
 
       font-weight: 600;
 
-      text-align: left;
+      margin-bottom: 18px;
     }
 
-    .option {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .reveal-button,
+    .send-button {
+      border: none;
 
-      padding: 15px;
+      border-radius: 12px;
 
-      margin-top: 10px;
+      padding: 13px 20px;
+
+      background: var(--accent);
+
+      color: #15151c;
+
+      font-size: 14px;
+
+      font-weight: 650;
+
+      cursor: pointer;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .reveal-button:hover,
+    .send-button:hover {
+      opacity: 0.88;
+    }
+
+    .request-content {
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 18px;
+
+      background: rgba(0,0,0,0.18);
+
+      border-radius: 14px;
+
+      line-height: 1.6;
+
+      font-size: 16px;
+    }
+
+    .reply-box {
+      margin-top: 28px;
+
+      padding: 24px;
 
       background: var(--card-2);
 
       border: 1px solid var(--border);
 
-      border-radius: 14px;
-
-      text-align: left;
-
-      cursor: pointer;
+      border-radius: 18px;
     }
 
-    .option input {
-      width: 18px;
-      height: 18px;
+    .reply-title {
+      color: var(--accent);
 
-      accent-color: var(--accent);
+      font-size: 14px;
+
+      font-weight: 600;
+
+      margin-bottom: 14px;
     }
 
     textarea {
       width: 100%;
 
-      min-height: 130px;
-
-      margin-top: 10px;
-
-      padding: 15px;
+      min-height: 120px;
 
       resize: vertical;
 
-      background: var(--card-2);
+      padding: 15px;
 
-      color: var(--text);
+      border-radius: 12px;
 
       border: 1px solid var(--border);
 
-      border-radius: 14px;
+      background: #101017;
 
-      outline: none;
+      color: var(--text);
 
       font-family: inherit;
 
-      font-size: 16px;
+      font-size: 15px;
 
       line-height: 1.5;
+
+      outline: none;
     }
 
     textarea:focus {
@@ -224,42 +227,43 @@
     }
 
     textarea::placeholder {
-      color: #777784;
+      color: var(--muted);
+    }
+
+    .send-button {
+      margin-top: 14px;
+
+      width: 100%;
     }
 
     #status {
       display: none;
 
-      margin-top: 16px;
+      margin-top: 12px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .closing {
+      margin-top: 28px;
 
       color: var(--accent);
 
-      font-size: 14px;
+      font-size: 18px;
 
-      line-height: 1.5;
-    }
+      font-weight: 600;
 
-    .send-button:disabled {
-      opacity: 0.6;
-      cursor: default;
+      text-align: center;
     }
 
     @keyframes appear {
       from {
         opacity: 0;
         transform: translateY(12px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes reveal {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
       }
 
       to {
@@ -275,117 +279,121 @@
       }
     }
   </style>
+
 </head>
 
 <body>
 
   <main class="card">
 
-    <div class="eyebrow">
-      Request 3
-    </div>
+```
+<div class="eyebrow">
+  Let me clarify
+</div>
 
-    <h1>
-      Since you asked...
-    </h1>
+<h1>
+  You misunderstood this one.
+</h1>
 
-    <div class="message">
+<div class="message">
 
-      I hear you and I understand why you feel that way.
-      I’m sorry this brought you back to a space you worked
-      so hard to get out of. I appreciate you being honest
-      with me.
+  It’s actually not about money at all and I think you
+  misunderstood the whole point.
 
-      <br><br>
+  <br><br>
 
-      Anyway you asked what my Request 3 was...it was to ask for money 🙂
+  I might not be earning much but what I earn covers me
+  in almost everything. Me telling you about my financial
+  challenges doesn’t mean I go around asking people for
+  money or that I was looking at you as someone to
+  financially assist me.
 
-    </div>
+  <br><br>
 
-    <button
-      class="open-button"
-      id="openButton"
-      type="button"
-    >
-      Open my answer
-    </button>
+  You said I was testing you so I thought let me play
+  along and say I wanted money..I mean I just got paid bathong.
 
-    <section
-      class="answer-section"
-      id="answerSection"
-    >
+  <br><br>
 
-      <div class="answer">
-        I wanted to ask you for money 🙂
-      </div>
+  So your response about giving money to random people
+  and suggesting I take a bank loan was unnecessary
+  because that was never what this was about.
 
-      <div class="question">
-        Would you prefer:
-      </div>
+</div>
 
-      <label class="option">
-        <input
-          type="radio"
-          name="response"
-          value="A loan"
-        />
-        <span>A loan</span>
-      </label>
+<div class="request-section">
 
-      <label class="option">
-        <input
-          type="radio"
-          name="response"
-          value="Just to give you"
-        />
-        <span>Just to give you</span>
-      </label>
+  <div class="request-title">
+    Request 3
+  </div>
 
-      <div class="question">
-        Honest review
-      </div>
+  <button
+    class="reveal-button"
+    id="revealButton"
+    type="button"
+  >
+    Click to reveal
+  </button>
 
-      <textarea
-        id="comments"
-        name="comments"
-        placeholder="If you want to add anything else..."
-      ></textarea>
+  <div
+    class="request-content"
+    id="requestContent"
+  >
+    My actual Request 3 was about us taking the chance
+    and seeing where it goes.
+  </div>
 
-      <button
-        class="send-button"
-        id="sendButton"
-        type="button"
-      >
-        Send
-      </button>
+</div>
 
-      <div id="status"></div>
+<div class="reply-box">
 
-    </section>
+  <div class="reply-title">
+    Your response
+  </div>
+
+  <textarea
+    id="reply"
+    placeholder="Type your response here..."
+  ></textarea>
+
+  <button
+    class="send-button"
+    id="sendButton"
+    type="button"
+  >
+    Send
+  </button>
+
+  <div id="status"></div>
+
+</div>
+
+<div class="closing">
+  You got it all wrong Mr Vr 🤣🤣🤚
+</div>
+```
 
   </main>
 
   <script>
-    const openButton = document.getElementById("openButton");
-    const answerSection = document.getElementById("answerSection");
-    const sendButton = document.getElementById("sendButton");
-    const status = document.getElementById("status");
+    const revealButton = document.getElementById("revealButton");
+    const requestContent = document.getElementById("requestContent");
 
-    openButton.addEventListener("click", function () {
-      answerSection.style.display = "block";
-      openButton.style.display = "none";
+    revealButton.addEventListener("click", function () {
+      requestContent.style.display = "block";
+      revealButton.style.display = "none";
     });
+
+    const sendButton = document.getElementById("sendButton");
+    const reply = document.getElementById("reply");
+    const status = document.getElementById("status");
 
     sendButton.addEventListener("click", async function () {
 
-      const selectedResponse = document.querySelector(
-        'input[name="response"]:checked'
-      );
+      const message = reply.value.trim();
 
-      const comments = document.getElementById("comments").value.trim();
-
-      if (!selectedResponse) {
-        status.textContent = "Please choose an option first.";
+      if (!message) {
+        status.textContent = "Please type a response first.";
         status.style.display = "block";
         return;
       }
@@ -408,26 +416,18 @@
             },
 
             body: JSON.stringify({
-              "Request 3": "I wanted to ask you for money 🙂",
-              "Response": selectedResponse.value,
-              "Honest review": comments
+              "Reply": message
             })
           }
         );
 
         if (!response.ok) {
-          throw new Error("Submission failed");
+          throw new Error("Message was not sent");
         }
 
-        status.textContent = "Sent.";
-        
-        document.querySelectorAll(
-          'input[name="response"]'
-        ).forEach(function (radio) {
-          radio.checked = false;
-        });
+        reply.value = "";
 
-        document.getElementById("comments").value = "";
+        status.textContent = "Sent.";
 
       } catch (error) {
 
